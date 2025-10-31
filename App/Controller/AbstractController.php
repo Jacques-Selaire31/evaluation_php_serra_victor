@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Controller;
+
+abstract class AbstractController
+{
+
+    public function render(string $template, ?string $title, array $data = []): void
+    {
+        include __DIR__ . "/../../templates/template_" . $template . ".php";
+    }
+
+    public function isFormSubmitted(array $post): bool
+    {
+        return isset($post["submit"]);
+    }
+    
+}
